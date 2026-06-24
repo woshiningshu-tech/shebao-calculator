@@ -2,6 +2,9 @@ import ResultTable from "@/components/ResultTable";
 import { getSupabase } from "@/lib/supabase";
 import type { CalculationResult } from "@/types/database";
 
+// 禁用静态预渲染 — 此页面依赖实时数据库数据
+export const dynamic = "force-dynamic";
+
 async function fetchResults(): Promise<CalculationResult[]> {
   const supabase = getSupabase();
   const { data } = await supabase
